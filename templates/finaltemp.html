@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <link rel="stylesheet" type="text/css" href = "temp trial.css">
+  </head>
+  <body>
+  	<form action='/textbook/new' method='post'>
+    <input type='text' name = "email" id='email' placeholder='E-mail'>
+    <input type='text' name = "courseNum" id='courseNumber' placeholder='Course Number'>
+    <input type='text' name = "price" id='price' placeholder='Selling Price'>
+    <button type="submit">Submit</button>
+</form>
+
+    <script>
+      var myDataRef = new Firebase('https://textbook.firebaseio.com/');
+      $('#price').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var email = $('#email').val();
+          var courseNum = $('#courseNumber').val();
+          var price = $('#price').val()
+          myDataRef.push({email: email, courseNum: courseNum, price: price});
+          $('#courseNumber').val('');
+          $('#price').val('');
+        }
+      });
+    </script>
+  </body>
+</html>
