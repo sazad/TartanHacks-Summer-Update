@@ -26,7 +26,7 @@ def addTextbook():
     return render_template('saleposted.html')
 
 def addToDatabase(price, cNum, email, name):
-    cur.execute("INSERT INTO textbooksNEW (email, courseNum, bookName, price) VALUES ('"+ email +"', '"+ cNum +"', '"+ name +"', "+ price +")")
+    cur.execute("INSERT INTO textbooks (email, courseNum, bookName, price) VALUES ('"+ email +"', '"+ cNum +"', '"+ name +"', "+ price +")")
 
 @app.route("/buyer.html")
 def allTextbooks():
@@ -35,7 +35,7 @@ def allTextbooks():
 @app.route("/textbooks.html", methods=["POST"])
 def searchTextbooks():
 	courseNumber = request.form['course']
-	cur.execute("SELECT '"+ courseNumber +"' FROM textbooksNEW WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
+	cur.execute("SELECT '"+ courseNumber +"' FROM textbooks WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
 	return render_template('textbooks.html', textbooks=cur.fetchall())
 
 if __name__ == "__main__":
