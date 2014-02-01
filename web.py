@@ -37,7 +37,12 @@ def searchTextbooks():
 	courseNumber = request.form['course']
 	cur.execute("SELECT * FROM textbooks WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
     rows = cur.fetchall()
-    return render_template('textbooks.html', rows=rows)
+    #return render_template('textbooks.html', rows=rows)
+    html = '<html>'
+    for(book in rows):
+        html.append(book)
+    html.append('</html>')
+    return html
 
 
 if __name__ == "__main__":
