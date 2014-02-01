@@ -1,12 +1,11 @@
 <html>
-	{%for book in textbooks %}
-		{%if book.courseNum == course%}
-			Email: {{ book.email }}<br>
+	{%for book in rows%}
+		{{rows}}
+	<!--			Email: {{ book.email }}<br>
 			Course Number: {{ book.courseNum}}<br>
 			Textbook Name: {{book.name}}<br>
-			Price: {{book.price}}<br>
+			Price: {{book.price}}<br>-->
 			<br></br>
 			<br></br>
-		{% endif %}
 	{% endfor %}
 </html>
