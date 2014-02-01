@@ -38,11 +38,12 @@ def searchTextbooks():
 	cur.execute("SELECT * FROM textbooks WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
     rows = cur.fetchall()
     #return render_template('textbooks.html', rows=rows)
-    html = '<html>'
+    htmln = '<html>'
     for(book in rows):
-        html.append(book)
-    html.append('</html>')
-    return html
+        htmln.append(book)
+    htmln.append('</html>')
+    return render_template('textbooks.html', info=htmln)
+    
 
 
 if __name__ == "__main__":
