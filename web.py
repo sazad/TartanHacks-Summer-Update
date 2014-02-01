@@ -35,9 +35,10 @@ def allTextbooks():
 @app.route("/textbooks.html", methods=["POST"])
 def searchTextbooks():
 	courseNumber = request.form['course']
-	cur.execute("SELECT '"+ courseNumber +"' FROM textbooks WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
+	cur.execute("SELECT * FROM textbooks WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
     rows = cur.fetchall()
-    print rows
+    return render_template('textbooks.html', rows)
+
 
 if __name__ == "__main__":
 	app.run(debug=True)
