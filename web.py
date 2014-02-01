@@ -10,13 +10,13 @@ cur = db.cursor()
 def beginning():
 	return render_template('opening.html')
 
-@app.route("/textbook/seller")
+@app.route("/seller.html")
 def hello():
     return render_template("seller.html")
 
 archive = []
 
-@app.route("/textbook/new", methods=["POST"])
+@app.route("/saleposted.html", methods=["POST"])
 def addTextbook():
     cNum = request.form['courseNum']
     email = request.form['email']
@@ -28,11 +28,11 @@ def addTextbook():
 def addToDatabase(price, cNum, email, name):
     cur.execute("INSERT INTO textbooksNEW (email, courseNum, bookName, price) VALUES ('"+ email +"', '"+ cNum +"', '"+ name +"', "+ price +")")
 
-@app.route("/textbook/buyer")
+@app.route("/buyer.html")
 def allTextbooks():
 	return render_template('buyer.html')
 
-@app.route("/textbook/search", methods=["POST"])
+@app.route("/textbooks.html", methods=["POST"])
 def searchTextbooks():
 	courseNumber = request.form['course']
 	cur.execute("SELECT '"+ courseNumber +"' FROM textbooksNEW WHERE courseNum= '"+ courseNumber+"' ORDER BY price ASC")
