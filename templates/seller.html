@@ -9,9 +9,9 @@
     <div align="center">
       <a href="http://s416.photobucket.com/user/sa222blah/media/ScreenShot2014-02-01at91031AM_zps1e91b37d.png.html" target="_blank"><img src="http://i416.photobucket.com/albums/pp247/sa222blah/ScreenShot2014-02-01at91031AM_zps1e91b37d.png" border="0" alt=" photo ScreenShot2014-02-01at91031AM_zps1e91b37d.png"/></a>
     	<p>Enter the course number and price you are willing to sell it for.</p>
-    	<form action='/saleposted.html' method='post'>
+    	<form action="{{  url_for('addTextbook')  }}" method='post'>
   	    <input type='text' name = "email" id='email' placeholder='E-mail'>
-  	    <input type='text' name = "courseNum" id='courseNumber' placeholder='Course Number'>
+  	    <input type='text' name = "courseNumber" id='courseNumber' placeholder='Course Number'>
         <input type='text' name = "textName" id='textName' placeholder='Textbook Name'>
   	    <input type='text' name = "price" id='price' placeholder='Selling Price'>
   	    <button type="submit">Submit</button>

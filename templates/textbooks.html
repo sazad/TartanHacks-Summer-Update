@@ -1,21 +1,10 @@
-<html>
-<h1>Textbooks for Sale</h1>
-<h2>Course Number: 73100</h2>
-<li>
-	Book Name: Economics<br>
-	E-mail: sazad@andrew.cmu.edu<br>
-	Price: $5<br>
-</li>
-<hr>
-<li>
-	Book Name: Princ. of Economics<br>
-	E-mail: jdoe@andrew.cmu.edu<br>
-	Price: $15<br>
-</li>
-<hr>
-<li>
-	Book Name: econ<br>
-	E-mail: llamma@andrew.cmu.edu<br>
-	Price: $25<br>
-</li>
-</html>
+{% block body %}
+  <ul class=entries>
+  Course Number: {{ entries[0].courseNum}}
+  {% for entry in entries %}
+    <p>Textbook Name: {{ entry.name }}<br>
+    Email: {{ entry.email }}<br>
+    Price: ${{ entry.price}}</p>
+  {% endfor %}
+  </ul>
+{% endblock %}
